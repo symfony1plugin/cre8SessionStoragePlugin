@@ -1,0 +1,21 @@
+connection:           propel
+defaultIdMethod:      native
+package:              plugins.cre8SessionStoragePlugin.lib.model
+
+classes:
+
+  cre8SessionStorage:
+    columns:
+      id:             ~
+      sess_id:        { type: varchar(60), required: true, primaryString: true }
+      sess_data:      { type: longvarchar, required: true }
+      sess_time:      { type: integer, required: true }
+      user_id:        { type: integer, foreignClass: sfGuardUser, foreignReference: id, onDelete: cascade }
+
+  cre8LoginHistory:
+    columns:
+      id:              ~
+      user_id:         { type: integer, foreignClass: sfGuardUser, foreignReference: id, required: true, onDelete: cascade }
+      ip:              { type: varchar(128) }
+      created_at:      ~
+  

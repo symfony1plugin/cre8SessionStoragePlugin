@@ -1,0 +1,10 @@
+Installation:
+
+in app/config/factories.yml:
+
+all:
+  storage:
+    class: cre8PDOSessionStorage
+    param:
+      database:     propel
+      db_table:     cre8_session_storage
